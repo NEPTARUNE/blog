@@ -1,3 +1,14 @@
+<?php
+$fp = fopen('data.csv', 'a+b');
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    fputcsv($fp, [$_POST['name'], $_POST['comment']]);
+    rewind($fp);
+}
+while ($row = fgetcsv($fp)) {
+    $rows[] = $row;
+}
+fclose($fp);
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
