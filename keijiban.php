@@ -30,7 +30,15 @@ fclose($fp);
 </section>
 <section>
     <h2>投稿一覧</h2>
+ <?php if (!empty($rows)): ?>
+    <ul>
+<?php foreach ($rows as $row): ?>
+        <li><?=$row[1]?> (<?=$row[0]?>)</li>
+<?php endforeach; ?>
+    </ul>
+<?php else: ?>
     <p>投稿はまだありません</p>
+<?php endif; ?>
 </section>
 </body>
 </html>
